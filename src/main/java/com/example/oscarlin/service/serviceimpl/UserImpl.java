@@ -16,4 +16,10 @@ public class UserImpl implements UserService {
     public List<User> selectAll(User user) {
         return userMapper.selectAll(user);
     }
+
+    @Override
+    public User login(User user) {
+        User loginUser=userMapper.getByUsernameAndPassword(user);
+        return  loginUser;
+    }
 }

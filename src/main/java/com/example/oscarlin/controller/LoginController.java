@@ -1,10 +1,10 @@
 package com.example.oscarlin.controller;
 
+import com.example.oscarlin.common.Result;
 import com.example.oscarlin.domain.User;
 import com.example.oscarlin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,7 +13,14 @@ public class LoginController {
     @Autowired
     private UserService userService;
     @GetMapping("/selectALL")
-    public List<User> selectALL(User user){
-        return userService.selectAll(user);
+    public Result selectALL(User user){
+        List<User> users = userService.selectAll(user);
+        return Result.success(users);
+    }
+    @PostMapping("/login")
+    @ResponseBody
+    public Result login(@RequestBody User user){
+        User users=userService.login(user);
+        return users !=null?Result.success():Result.error("用户名或密码错误");
     }
 }

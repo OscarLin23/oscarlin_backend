@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserService {
 
     List<User> selectAll(User user);
+
+    User login(User user);
 }
