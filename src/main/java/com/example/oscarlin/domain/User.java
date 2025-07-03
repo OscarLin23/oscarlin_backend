@@ -1,5 +1,11 @@
 package com.example.oscarlin.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.Data;
+import lombok.ToString;
+
+@Data
+@ToString
 public class User {
     private Integer id;
     private String username;
@@ -37,4 +43,6 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
+    @TableField(exist = false)
+    private String token;
 }
