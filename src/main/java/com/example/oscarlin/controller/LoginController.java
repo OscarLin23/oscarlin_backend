@@ -27,7 +27,6 @@ public class LoginController {
             users.setToken(JWTUtils.createToken(users));
             System.out.println("后端生成的token为：\n"+users.getToken());
             return Result.success(users);
-        }
-        return users !=null?Result.success():Result.error("用户名或密码错误");
+        }else return Result.error("用户名或密码错误");
     }
 }
