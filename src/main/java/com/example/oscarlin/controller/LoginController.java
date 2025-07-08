@@ -7,6 +7,7 @@ import com.example.oscarlin.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -28,5 +29,10 @@ public class LoginController {
             System.out.println("后端生成的token为：\n"+users.getToken());
             return Result.success(users);
         }else return Result.error("用户名或密码错误");
+    }
+    @GetMapping
+    public Boolean checkToken(HttpServletRequest request){
+        String token=request.getHeader("token");
+        return JWTUtils.checkToken(token);
     }
 }
