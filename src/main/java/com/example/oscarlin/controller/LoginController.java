@@ -30,7 +30,7 @@ public class LoginController {
             return Result.success(users);
         }else return Result.error("用户名或密码错误");
     }
-    @GetMapping
+    @GetMapping("/checkToken")
     public Boolean checkToken(HttpServletRequest request){
         String token=request.getHeader("token");
         return JWTUtils.checkToken(token);
