@@ -36,7 +36,7 @@ public class Result {
     }
 
     //失败的方法，返回自定义错误信息 和 错误代码“-1”
-    public static Result error(String msg) {
+    public static Result error(Object data) {
         Result result = new Result();
         result.setCode(ERROR_CODE);
         result.setMsg(ERROR);
