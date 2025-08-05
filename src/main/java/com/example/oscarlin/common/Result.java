@@ -6,6 +6,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 public class Result {
+    public Result() {
+    }
+
+    public Result(String code, Object data, String msg) {
+        this.code = code;
+        this.data = data;
+        this.msg = msg;
+    }
+
     //定义两个常量，成功的code是200，失败的是-1
     private static final String SUCCESS_CODE = "200";
     private static final String SERVER_EXCEPTION_CODE="500";
