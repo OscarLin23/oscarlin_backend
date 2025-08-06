@@ -12,4 +12,6 @@ public interface UserMapper {
     List<User> selectAll(User user);
 
     User getByUsernameAndPassword(User user);
+
+    int InsertUsernameAndPassword(User user);
 }

@@ -9,4 +9,6 @@ public interface UserService {
     List<User> selectAll(User user);
 
     User login(User user);
+
+    User register(User user);
 }

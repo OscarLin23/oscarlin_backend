@@ -35,4 +35,16 @@ public class LoginController {
         String token=request.getHeader("token");
         return JWTUtils.checkToken(token);
     }
+    @PostMapping("/user/register")
+    public Result register(@RequestParam String username, @RequestParam String password){
+        User user=new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        User user1=userService.register(user);
+        if (user1!=null){
+            return Result.success(user1);
+        }else{
+            return Result.error("注册失败");
+        }
+    }
 }

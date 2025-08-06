@@ -22,4 +22,13 @@ public class UserImpl implements UserService {
         User loginUser=userMapper.getByUsernameAndPassword(user);
         return  loginUser;
     }
+
+    @Override
+    public User register(User user) {
+        int result = userMapper.InsertUsernameAndPassword(user);
+        if (result > 0) {
+            return user;
+        }
+        return null;
+    }
 }
